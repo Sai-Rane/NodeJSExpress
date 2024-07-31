@@ -14,7 +14,11 @@ const server = http.createServer((req, res) => {
   } else if (pathName == "/product") {
     res.end("This is product");
   } else {
-    res.end("Page not found");
+    //writeHead can also send headers. Headers are basically piece of information about the response that we are sending back. We specify the headers in form of objects. oNe of the standard headers is to inform the browser about the content type
+    // res.writeHead(404, {
+    //   "Content-type": "text/html",
+    // });
+    res.end("Page not found"); //404 is the http status code
   }
 });
 
