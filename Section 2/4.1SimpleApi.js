@@ -4,7 +4,7 @@ const http = require("http"); //importing http module. This will help us in buil
 const url = require("url");
 
 //This top level code will be executed only once we start the program
-const data = fs.readFileSync("./dev-data/data.json", "utf-8");  //callback are required only for async operation
+const data = fs.readFileSync("./dev-data/data.json", "utf-8");  //callback are required only for async operation.Here, we are reading file in Synchronous manner. So we dont need to pass callback function
 const dataObj = JSON.parse(data);
 console.log("productData", dataObj);
 // In order to build a server, we have to do 2 things: 1st we create a server and 2nd we start the server

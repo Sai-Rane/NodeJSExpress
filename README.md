@@ -17,3 +17,5 @@ In this you can find all the modules you need for your project
 
 Synchronous code is also called as blocking code as it waits for previous line to finish
 Asynchronous code is non blocking code
+
+Every file in NodeJS is a Module
