@@ -2,7 +2,12 @@
 const fs = require("fs");
 const http = require("http"); //importing http module. This will help us in building http server
 const url = require("url")
+const slugify=require("slugify")
 const replaceTemplate = require("./modules/replaceTemplate")
+
+console.log("slugify",slugify('Fresh Avocados',{
+    lower:true,
+}))
 
 const tempOverview = fs.readFileSync(
   "./templates/template-overview.html",
@@ -17,6 +22,11 @@ const tempProduct = fs.readFileSync(
 const data = fs.readFileSync("./dev-data/data.json", "utf-8");
 const dataObj = JSON.parse(data);  //parse Converts JSON object to JS object
 console.log("dataObj", dataObj);
+
+const slugs=dataObj.map((ele)=>slugify(ele?.productName,{
+    lower:true,
+}))
+console.log('slugs', slugs)
 
 // In order to build a server, we have to do 2 things: 1st we create a server and 2nd we start the server
 const server = http.createServer((req, res) => {
